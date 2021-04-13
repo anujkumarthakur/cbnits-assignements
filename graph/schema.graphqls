@@ -1,0 +1,34 @@
+type Book{
+  id: ID!
+  bookName: String
+  bookDescription: String
+  bookAuthorName:String
+}
+
+type DBConfig  {
+	host: String!
+	port: String!
+	user: String!
+	dbName: String!
+	password: String!
+}
+
+
+type Query {
+  books: [Book!]!
+}
+
+input BookInput {
+  bookName: String!
+  bookDescription: String!
+  bookAuthorName:String!
+}
+
+input BookId{
+  id:Int
+}
+
+type Mutation {
+  createBook(input: BookInput!): Book!
+  getSingleBook(input : BookId!): Book!
+}
